@@ -24,7 +24,7 @@ export default function CharacterId() {
             setComics(Extract(data))
         }
         fetchData()
-    },[])
+    },[params.characterID])
 
     return(
         <section className='w-full p-10'>

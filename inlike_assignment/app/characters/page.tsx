@@ -33,7 +33,7 @@ export default function Characters() {
             </thead>        
             <tbody>
                 {characters.map((character: Character) => (
-                <tr className="border border-black font-[Inter]">
+                <tr key={character.id} className="border border-black font-[Inter]">
                     <td className='border border-black text-[#ED553B] text-[Inter]'>{character.name}</td>
                     <td className='border border-black text-[#ED553B] text-[Inter]'>{character.description ? character.description: 'N/A'}</td>
                     <td >
