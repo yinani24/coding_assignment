@@ -17,27 +17,27 @@ export default function Characters() {
         fetchData()
     },[])
 
-    const handleClick = (id: number) => {
-        router.push(`/characters/${id}`)
+    const handleClick = (id: number, name: string) => {
+        router.push(`/characters/${id}?name=${name}`)
     }
     return (
-        <section className='flex justify-center items-center'>
+        <section className='flex justify-center items-center p-10'>
         {characters && characters.length > 0 && 
-            <table className='w-4/5'>
+            <table className='w-4/5 text-center shadow-lg'>
             <thead>
-                <tr className='border'>
-                    <th className=''>Name</th>
-                    <th>Description</th>
-                    <th> Click </th>
+                <tr className='border border-black font-[Inter]'>
+                    <th className='border border-black text-[#393280]'>Character Name</th>
+                    <th className='border border-black text-[#393280]'>Description</th>
+                    <th className='border border-black text-[#393280]'>Information about the Comics</th>
                 </tr>
             </thead>        
             <tbody>
                 {characters.map((character: Character) => (
-                <tr className="border">
-                    <td>{character.name}</td>
-                    <td>{character.description}</td>
-                    <td>
-                        <button onClick={() => handleClick(parseInt(character.id))}> click Me</button>
+                <tr className="border border-black font-[Inter]">
+                    <td className='border border-black text-[#ED553B] text-[Inter]'>{character.name}</td>
+                    <td className='border border-black text-[#ED553B] text-[Inter]'>{character.description ? character.description: 'N/A'}</td>
+                    <td >
+                        <button className='border border-[#393280] text-[#393280] rounded p-1 m-2 hover:bg-[#393280] hover:text-white' onClick={() => handleClick(parseInt(character.id), character.name)}> {` More Info -> `}</button>
                     </td>
                 </tr>
                 ))}
