@@ -7,8 +7,8 @@ import { NextResponse, NextRequest } from 'next/server';
 
 function makeUrl({url, id, secondary}: GettingURL): string {
     const timestamp = new Date().getTime().toString()
-    const publicKey = process.env.PUBLIC_KEY
-    const privateKey = process.env.PRIVATE_KEY
+    const publicKey = process.env.Next_PUBLIC_KEY
+    const privateKey = process.env.Next_PRIVATE_KEY
     const hash = crypto.createHash('md5').update(timestamp + privateKey + publicKey).digest("hex")
     const new_url = url + id + secondary + '?' + `ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
     //console.log(new_url)
