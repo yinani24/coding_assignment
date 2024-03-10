@@ -9,10 +9,24 @@ import {useRouter} from 'next/navigation'
 export default function Characters() {
     const [characters, setCharacters] = useState([])
     const router = useRouter()
+    // useEffect(() =>{
+    //     async function fetchData(){
+    //     const data = await GetCharacters({url: urls.characters, id:'', secondary:''})
+    //     setCharacters(data)
+    //     }
+    //     fetchData()
+    // },[])
+
     useEffect(() =>{
         async function fetchData(){
-        const data = await GetCharacters({url: urls.characters, id:'', secondary:''})
-        setCharacters(data)
+            // const sendData = {url: urls.characters, id: '', secondary:''}
+            // const JSONdata = JSON.stringify(sendData);
+            const endpoint = `/api?url=${urls.characters}&id=${''}&secondary=${''}`;
+    
+            const response = await fetch(endpoint);
+            const data = await response.json()
+            //const data = await GetCharacters({url: urls.characters, id:'', secondary:''})
+            setCharacters(data)
         }
         fetchData()
     },[])

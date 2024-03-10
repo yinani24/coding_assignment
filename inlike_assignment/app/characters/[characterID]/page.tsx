@@ -15,10 +15,28 @@ export default function CharacterId() {
     const searchParams = useSearchParams()
     const characterName = searchParams.get('name')
     console.log(params)
+    // useEffect(() =>{
+    //     async function fetchData(){
+    //         console.log(params.characterID)
+    //         const data = await GetCharacters({url: urls.characters, id: '/' + params.characterID, secondary:'/comics'})
+    //         //setComics(data)
+    //         console.log(Extract(data))
+    //         setComics(Extract(data))
+    //     }
+    //     fetchData()
+    // },[params.characterID])
     useEffect(() =>{
         async function fetchData(){
-            console.log(params.characterID)
-            const data = await GetCharacters({url: urls.characters, id: '/' + params.characterID, secondary:'/comics'})
+            const sendData = {url: urls.characters, id: '/' + params.characterID, secondary:'/comics'}
+            const JSONdata = JSON.stringify(sendData);
+            const endpoint = `/api?url=${urls.characters}&id=/${params.characterID}&secondary=/comics`;
+    
+            const response = await fetch(endpoint);
+            console.log(response)
+            const data = await response.json()
+            //console.log(response);
+
+            //const data = await GetCharacters({url: urls.characters, id: '/' + params.characterID, secondary:'/comics'})
             //setComics(data)
             console.log(Extract(data))
             setComics(Extract(data))
