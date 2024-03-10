@@ -9,9 +9,11 @@ function makeUrl({url, id, secondary}: GettingURL): string {
     const timestamp = new Date().getTime().toString()
     const publicKey = process.env.Next_PUBLIC_KEY
     const privateKey = process.env.Next_PRIVATE_KEY
+    console.log("publicKey",publicKey)
+    console.log("privateKey",privateKey)
     const hash = crypto.createHash('md5').update(timestamp + privateKey + publicKey).digest("hex")
     const new_url = url + id + secondary + '?' + `ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
-    //console.log(new_url)
+    //console.log("new_url",new_url)
     return new_url
 }
 
