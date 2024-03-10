@@ -1,16 +1,16 @@
-import Image from "next/image";
-import crypto from "crypto";
+'use client';
+import {useRouter} from 'next/navigation'
 
 export default function Home() {
-  const timestamp = new Date().getTime().toString()
-  const publicKey = process.env.PUBLIC_KEY!
-  const privateKey = process.env.PRIVATE_KEY!
-  const hash = crypto.createHash('md5').update(timestamp + privateKey + publicKey).digest("hex")
-  const url = `https://gateway.marvel.com/v1/public/characters?ts=${timestamp}&apikey=${publicKey}&hash=${hash}`
-  
-  return (
+  const router = useRouter();
+
+  const handleChange = () => {
+    router.push('/characters')
+  }
+  return(
     <main>
-      
+      <h1 className=''> Welcome to Inlike Marvel Comics </h1>
+      <button onClick={handleChange}>Click to continue to checkout the Character's we have</button>
     </main>
-  );
+  )
 }
