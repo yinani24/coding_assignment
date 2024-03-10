@@ -1,7 +1,7 @@
 'use client'
 
 import { use, useEffect, useState } from 'react'
-import { GetCharacters } from '@/app/api/route'
+// import { GetCharacters } from '@/app/api/route'
 import { urls } from '@/components/constants'
 import Extract from './extractComicInfo'
 import { useParams, useRouter, useSearchParams } from 'next/navigation'

@@ -15,16 +15,16 @@ function makeUrl({url, id, secondary}: GettingURL): string {
     return new_url
 }
 
-export async function GetCharacters({url, id, secondary}: GettingURL) {
-    try{
-        const response = await fetch(makeUrl({url, id, secondary}))
-        const data = await response.json()
-        console.log(data.data.results)
-        return data.data.results
-    }catch(error){
-        console.log(error)
-    }
-}
+// export async function GetCharacters({url, id, secondary}: GettingURL) {
+//     try{
+//         const response = await fetch(makeUrl({url, id, secondary}))
+//         const data = await response.json()
+//         console.log(data.data.results)
+//         return data.data.results
+//     }catch(error){
+//         console.log(error)
+//     }
+// }
 
 export async function GET(req: NextRequest){
     console.log(req.nextUrl.searchParams)

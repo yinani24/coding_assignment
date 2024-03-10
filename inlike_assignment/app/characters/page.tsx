@@ -2,7 +2,7 @@
 
 import { urls } from "@/components/constants";
 import {useEffect, useState} from "react";
-import { GetCharacters } from "@/app/api/route";
+// import { GetCharacters } from "@/app/api/route";
 import { Character } from "@/components/interfaces";
 import {useRouter} from 'next/navigation'
 
