@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function Double({main, secondary, color, text="text-xs", font="font-[Inter]"}: {main: string, secondary: string, color: string, text?: string, font?: string}){
     return(
-        <div className='flex flex-row gap-2 text-left'>
+        <div className='flex flex-row gap-2'>
             <p className={`${text} text-left ${font} font-bold ${color}`}>{main}</p>
             <p className={`${text} ${font} text-wrap ${color}`}>{secondary}</p>
         </div>

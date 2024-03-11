@@ -47,11 +47,11 @@ export default function Characters() {
             </thead>        
             <tbody>
                 {characters.map((character: Character) => (
-                <tr key={character.id} className="border border-[#ED553B80] font-sans bg-[#ED553B80]">
-                    <td className='border border-[#ED553B80] text-[#173F5F] font-semibold p-3'>{character.name}</td>
-                    <td className='border border-[#ED553B80] font-semibold text-[#173F5F]'>{character.description ? character.description: 'Not Available'}</td>
+                <tr key={character.id} className="border border-[#ED553B80] font-sans ">
+                    <td className='border border-[#ED553B80] text-[#393280CC] font-semibold p-3'>{character.name}</td>
+                    <td className='border border-[#ED553B80] font-medium text-[#393280CC] p-3'>{character.description ? character.description: 'Not Available'}</td>
                     <td >
-                        <button className='border border-[#393280] bg-[#393280] text-white rounded p-1 m-2 hover:bg-[white] hover:text-[#393280]' onClick={() => handleClick(parseInt(character.id), character.name)}> {` More Info -> `}</button>
+                        <button className='border border-[#393280] bg-[#393280] text-white rounded p-2 m-2 hover:bg-[white] hover:text-[#393280] text-s' onClick={() => handleClick(parseInt(character.id), character.name)}> {` More Info -> `}</button>
                     </td>
                 </tr>
                 ))}
