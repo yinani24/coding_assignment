@@ -1,5 +1,9 @@
 import { Comics } from "@/components/interfaces";
 
+function removeHTMLTags(text: string){
+    return text.replace(/<[^>]*>?/gm, '');
+}
+
 function findPrice(object: any, key: string){
     let item: number = 0
     for (let i = 0; i < object.length; i++){
@@ -18,6 +22,7 @@ function findDescription(object: any, key: string){
     for (let i = 0; i < object.length; i++){
         if (object[i].type === key){
             item = object[i].text
+            item = removeHTMLTags(item)
         }
         else{
             item = object[i].text

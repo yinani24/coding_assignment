@@ -37,21 +37,21 @@ export default function Characters() {
     return (
         <section className='flex justify-center items-center p-10'>
         {characters && characters.length > 0 && 
-            <table className='w-4/5 text-center shadow-lg'>
+            <table className='w-10/12 text-center shadow-2xl shadow-[#ED553B80]'>
             <thead>
-                <tr className='border border-black font-[Inter]'>
-                    <th className='border border-black text-[#393280]'>Character Name</th>
-                    <th className='border border-black text-[#393280]'>Description</th>
-                    <th className='border border-black text-[#393280]'>Information about the Comics</th>
+                <tr className='border border-[#ED553B80] font-mono text-xl'>
+                    <th className='border border-[#ED553B80] text-[#393280] p-4'>Character Name</th>
+                    <th className='border border-[#ED553B80] text-[#393280] p-4'>Description</th>
+                    <th className='border border-[#ED553B80] text-[#393280] p-4'>Information about the Comics</th>
                 </tr>
             </thead>        
             <tbody>
                 {characters.map((character: Character) => (
-                <tr key={character.id} className="border border-black font-[Inter]">
-                    <td className='border border-black text-[#ED553B] text-[Inter]'>{character.name}</td>
-                    <td className='border border-black text-[#ED553B] text-[Inter]'>{character.description ? character.description: 'N/A'}</td>
+                <tr key={character.id} className="border border-[#ED553B80] font-sans bg-[#ED553B80]">
+                    <td className='border border-[#ED553B80] text-[#173F5F] font-semibold p-3'>{character.name}</td>
+                    <td className='border border-[#ED553B80] font-semibold text-[#173F5F]'>{character.description ? character.description: 'Not Available'}</td>
                     <td >
-                        <button className='border border-[#393280] text-[#393280] rounded p-1 m-2 hover:bg-[#393280] hover:text-white' onClick={() => handleClick(parseInt(character.id), character.name)}> {` More Info -> `}</button>
+                        <button className='border border-[#393280] bg-[#393280] text-white rounded p-1 m-2 hover:bg-[white] hover:text-[#393280]' onClick={() => handleClick(parseInt(character.id), character.name)}> {` More Info -> `}</button>
                     </td>
                 </tr>
                 ))}
